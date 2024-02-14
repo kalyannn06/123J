@@ -1,0 +1,246 @@
+(((the prime and composite numbers)))
+import java.util.*;
+class prime{ 
+public static void main(String args[])
+{ 
+try{
+ int i,j,m=0,flag=0,prime=0,composite=0,n,count; 
+ Scanner s= new Scanner(System.in);
+System.out.println("enter how many numbers");
+ count=s.nextInt();
+System.out.println("enter numbers:");
+ for(j=0;j<count;j++)
+ {
+ n=s.nextInt();
+ m=n/2; 
+ if(n==0||n==1){ 
+ prime=prime+1 ; 
+ }
+ else
+ { 
+ for(i=2;i<=m;i++)
+ { 
+ if(n%i==0){ 
+ composite=composite+1 ; 
+ flag=1; 
+ break; 
+ } 
+ } 
+ if(flag==0)
+ { 
+ prime=prime+1; 
+ } 
+ }
+}
+System.out.println("number of prime:"+prime);
+System.out.println("number of prime:"+composite);
+}
+catch(Exception e){
+System.out.println("Invalid input");
+}
+}
+}
+(((Create N perfect numbers)))
+import java.util.Scanner;
+import java.lang.Math;
+
+public class perfect_number
+{
+    static int isPerfect(int n)
+    {
+        int dsum = 0;
+        int i;
+        for (i = 1; i <= Math.pow(n,0.5); ++i)
+        {
+            if (n % i == 0)
+            {
+                if (i == n / i)
+                {
+                    dsum += i;
+                }
+                else
+                {
+                    dsum += i;
+                    dsum += n / i;
+                }
+            }
+        }
+        dsum = dsum - n;
+        if (dsum == n)
+            return 1;
+        else
+            return 0;
+    }
+
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        int n, i, temp;
+        try
+        {
+            System.out.print("N = ");
+            n=input.nextInt();
+            i = 1;
+            System.out.print("First "+n+" Perfect numbers are: ");
+            while (n > 0) {
+                if (isPerfect(i) == 1) {
+                    System.out.print(i + " ");
+                    n = n - 1;
+                }
+                i = i + 1;
+            }
+            System.out.print("\n");
+        }
+        catch(Exception e)
+        {
+            System.out.print("Perfect number not exist for NEGATIVE AND FLOATING NUMBERS");
+        }
+    }
+}
+(((Fibonacci)))
+import java.util.Scanner;
+public class Fibonacci 
+{ 
+    public static void main(String[] args)     
+    {     
+        int n, a = 0, b = 0, c = 1;     
+        Scanner s = new Scanner(System.in);     
+        System.out.print("Enter value of n:");     
+        n = s.nextInt();     
+        System.out.print("Fibonacci Series:");   
+        for(int i = 1; i <= n; i++)   
+        {       
+            a = b;     
+            b = c;        
+            c = a + b;      
+            System.out.print(a+" ");   
+            }    
+            } 
+} 
+(((Hallow Square Pattern)))
+import java.util.Scanner;
+public class Hallowsquare_pattern {
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        int n,i,j;
+        String symbol;
+        System.out.print("Enter Symbol: ");
+        symbol=input.nextLine();
+        System.out.print("Enter n: ");
+        n=input.nextInt();
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n;j++)
+            {
+                if((i==1&&j<=n)||(i==n&&j<=n)||(j==1&&i<=n)||(j==n&&i<=n))
+                    System.out.print(symbol+" ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.print("\n");
+        }
+    }
+}
+(((Mth maximum number and Nth minimum)))
+import java.util.*;
+public class nthmth {
+    public static void main(String[] args){
+        int n,M,N;
+        System.out.println("enter the size of the array:");
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+        int[] array=new int[10];
+        System.out.println("enter the elements in the array:");
+        for(int i=0;i<n;i++)
+        {
+            array[i]=sc.nextInt();
+        }
+        System.out.println("enter value of m:");
+        M=sc.nextInt();
+        System.out.println("enter value of n:");
+        N=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(array[i]>array[j])
+                {
+                    int swap=array[i];
+                    array[i]=array[j];
+                    array[j]=swap;
+                }
+            }
+        }
+        int max=array[n-M]; int min=array[N-1];
+        System.out.println(M + "th max element=" + max);
+        System.out.println(N + "th min element=" + min);
+        System.out.println("sum = " + (max+min) + " difference= " + (max-min));
+    }
+}
+(((vowel remove)))
+import java.util.*;
+public class vowelremove {
+    public static void main(String[] args){
+        try {
+            String s1;
+            String s2 = "";
+            System.out.println("enter the string:");
+            Scanner sc = new Scanner(System.in);
+            s1 = sc.nextLine();
+            s2 = s1.replaceAll("[aeiouAEIOU]", "");
+            System.out.println("updated string= " + s2);
+        }
+        catch(Exception e)
+        {
+            System.out.println("enter valid input.");
+        }
+        }
+    }
+    (((simple intrest)))
+    import java.util.Scanner;
+public class Simple_interest
+{
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Is customer senior citizen(y/n): ");
+        char sen_cit=input.next().charAt(0);
+        int pri_amt,year;
+        double interest=0;
+        System.out.print("Enter the principal amount: ");
+        pri_amt=input.nextInt();
+        System.out.print("Enter the no of years: ");
+        year=input.nextInt();
+        if(sen_cit=='y'||sen_cit=='Y')
+        {
+
+            interest=(pri_amt*year*1.2)/100;
+            System.out.print(interest);
+        }
+        else if(sen_cit=='n'||sen_cit=='N')
+        {
+            interest=(pri_amt*year*10)/100;
+            System.out.print(interest);
+        }
+    }
+}
+(((Pyramid)))
+class Pyramid
+{
+public static void pyramidstar(int n)
+{
+int a,b;
+for(a=0;a<n;a++){
+for(b=0;b<=a;b++){
+System.out.print("*");
+}
+System.out.println();
+}
+}
+public static void main(String args[])
+{
+int n=5;
+pyramidstar(n);
+}
+}
